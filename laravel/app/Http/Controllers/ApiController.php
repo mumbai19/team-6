@@ -27,12 +27,12 @@ class ApiController extends Controller
 
     public function addAttendance(Request $request){
        
-        foreach($request as $obj) {
+        foreach(json_decode($request->data) as $obj) {
             $s_id = $obj->s_id;
             $staff_id = $obj->staff_id; 	
             $p_id = $obj->p_id;
             $is_present = $obj->is_present;
-            $date = date("Y/m/d");
+            $date = date("Y-m-d");
         
        
             $st = new student_attendance();
@@ -52,7 +52,7 @@ class ApiController extends Controller
 
     public function addActivity(Request $request) {
 
-        foreach($request as $obj) {
+        foreach(json_decode($request->data) as $obj) {
             $st = new activity_log();
             $st->p_id = (int)$obj->p_id;
             $st->staff_id = (int)$obj->staff_id;
@@ -76,7 +76,7 @@ class ApiController extends Controller
 
     public function addSavings(Request $request) {
 
-        foreach($request as $obj) {
+        foreach(json_decode($request->data) as $obj) {
             $st = new savings();
             $st->s_id = (int)$obj->s_id;
             $st->staff_id = (int)$obj->staff_id;
@@ -94,7 +94,7 @@ class ApiController extends Controller
 
     public function addStarChart(Request $request) {
 
-        foreach($request as $obj) {
+        foreach(json_decode($request->data) as $obj) {
             $st = new star_chart();
             $st->s_id = (int)$obj->s_id;
             $st->staff_id = (int)$obj->staff_id;
@@ -195,6 +195,36 @@ class ApiController extends Controller
 
         $dataModel['data'] = $final_arr;
         $dataModel['message'] = "Attendence report generated successfully";
+        $dataModel['error'] = false;
+
+        return new GeneralResource($dataModel);
+    }
+
+    public function addStudents(Request $request){
+       
+        // return $request;
+        // $request = json_decode($request);
+
+        // return $request;
+        foreach(json_decode($request->data) as $obj) {
+
+            // return $obj;
+            // $s_id = $obj->s_id;
+            // $staff_id = $obj->staff_id; 	
+            // $p_id = $obj->p_id;
+            // $is_present = $obj->is_present;
+            // $date = date("Y/m/d");
+        
+       
+            $st = new student();
+            $st->f_name = $obj->f_name;
+            $st->l_name = $obj->l_name;
+            $st->address = $obj->address;
+            $st->phone = $obj->phone;
+            $st->save();
+        }
+        $dataModel['data'] = [];
+        $dataModel['message'] = "Student Records Added Successfully";
         $dataModel['error'] = false;
 
         return new GeneralResource($dataModel);
