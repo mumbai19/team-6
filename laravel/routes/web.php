@@ -10,6 +10,10 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+use App\Data;
+use App\Exports\StudentsExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 Route::get('/', function()
 {
@@ -20,6 +24,12 @@ Route::get('/charts', function()
 {
 	return view('mcharts');
 });
+
+Route::get('/childrenDatabase', function()
+{	$data = Data::all();
+	return view('childrenDatabase')->withData($data);
+});
+
 
 Route::get('/tables', function()
 {
@@ -75,4 +85,10 @@ Route::get('/login', function()
 Route::get('/documentation', function()
 {
 	return view('documentation');
+});
+
+
+Route::get('/downloadStudentExcel', function()
+{
+	return Excel::download(new StudentsExport(), 'students.xlsx');
 });
