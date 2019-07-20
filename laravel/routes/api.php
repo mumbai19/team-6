@@ -32,3 +32,5 @@ Route::post('/addStarChart', 'ApiController@addStarChart');
 Route::post('/generateAttendanceReport', 'ApiController@generateAttendanceReport');
 
 Route::get('/studentsByProgram/{program}', 'ApiController@studentsByProgram');
+
+Route::post('/generateAttendanceReportDetailed', 'ApiController@generateAttendanceReportDetailed');
