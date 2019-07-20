@@ -21,3 +21,4 @@ Route::get('/allStudents', 'ApiController@allStudents');
 
 Route::post('/addAttendance', 'ApiController@addAttendance');
 
+Route::get('/studentsByProgram/{program}', 'ApiController@studentsByProgram');
