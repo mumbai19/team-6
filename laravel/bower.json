@@ -1,0 +1,22 @@
+{
+  "name": "sb-admin-laravel-2",
+  "version": "0.0.0",
+  "authors": [
+    "sankhadeep <sankhadeep@sahusoft.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~3.2.1",
+    "fontawesome": "~4.3.0",
+    "Chart.js": "~2.6.0",
+    "metisMenu": "~1.1.3"
+  }
+}
