@@ -13,6 +13,7 @@ use App\programs;
 use App\savings;
 use App\star_chart;
 use Illuminate\Support\Facades\DB;
+use DateTime;
 use Session;
 use Auth;
 
@@ -158,5 +159,43 @@ class ApiController extends Controller
         $dataModel['error'] = false;
         return new GeneralResource($dataModel);
 
+    }
+
+    public function generateAttendanceReportDetailed(Request $request) {
+        
+        $final_arr = array();
+
+        $from_date = new DateTime($request->from_date);
+        $to_date = new DateTime($request->to_date);
+
+        $final_arr = array();
+        for($i = $from_date; $i <= $to_date; $i = $i->modify('+1 day')) {
+            $date = $i->format('Y-m-d');
+            $staff_id = $request->staff_id; 	
+            $p_id = $request->p_id;
+
+            $temp = array();
+            foreach(student::all() as $student) {
+                $s_id = $student->s_id;
+
+                $fetched = DB::select('select * from student_attendance where s_id = :s_id and staff_id = :staff_id and p_id = :p_id and date = :date', ['s_id' => $s_id, 'staff_id' => $staff_id, 'p_id' => $p_id, 'date' => $date]);
+
+                if(empty($fetched)) {
+                    array_push($temp, 0);
+                }
+                else {
+                    array_push($temp, 1);
+                }
+            }
+
+
+            array_push($final_arr, [$date, $temp]);
+        }
+
+        $dataModel['data'] = $final_arr;
+        $dataModel['message'] = "Attendence report generated successfully";
+        $dataModel['error'] = false;
+
+        return new GeneralResource($dataModel);
     }
 }
