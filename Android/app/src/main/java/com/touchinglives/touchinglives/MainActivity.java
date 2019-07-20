@@ -6,8 +6,10 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +33,16 @@ public class MainActivity extends AppCompatActivity {
         });
 //file:///android_asset/noInternetConnection/AboutUs.html
 
-        wb.loadUrl("http://www.github.com");
+        wb.loadUrl("file:///android_asset/blur.html");
 
+    }
+
+    @JavascriptInterface
+    public void openProfile(String profileUrl) {
+        Toast.makeText(getApplicationContext(), profileUrl, Toast.LENGTH_LONG);
+        Intent intent = new Intent(getApplicationContext(), Programs.class);
+        intent.putExtra("url", "file:///android_asset/programmer.html");
+        startActivity(intent);
     }
 
     @Override

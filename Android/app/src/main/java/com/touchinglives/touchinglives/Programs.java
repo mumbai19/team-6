@@ -25,26 +25,18 @@ import android.view.Menu;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class Program extends AppCompatActivity
+public class Programs extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private WebView wb;
     private Dialog loadingDialog;
-    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_program);
-        toolbar = findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_programs);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-       /* FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -53,6 +45,7 @@ public class Program extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+        String profileURL = getIntent().getStringExtra("url");
         loadingDialog = ProgressDialog.show(this, "Please wait", "Loading...");
 
         wb = findViewById(R.id.webview);
@@ -66,7 +59,7 @@ public class Program extends AppCompatActivity
         });
 //file:///android_asset/noInternetConnection/AboutUs.html
 
-        wb.loadUrl("file:///android_asset/course_content.html");
+        wb.loadUrl("file:///android_asset/programmer_profile.html");
     }
 
     @Override
@@ -81,12 +74,12 @@ public class Program extends AppCompatActivity
         }
     }
 
-   /* @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.program, menu);
+        getMenuInflater().inflate(R.menu.programs, menu);
         return true;
-    }*/
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -108,35 +101,7 @@ public class Program extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        switch (id) {
-            case R.id.nav_attendance:
-                wb.loadUrl("file:///android_asset/attendance.html");
-                toolbar.setTitle("Attendance");
-                break;
-            case R.id.nav_saving:
-                wb.loadUrl("file:///android_asset/savings.html");
-                toolbar.setTitle("Saving");
-                break;
-            case R.id.nav_activity:
-                wb.loadUrl("file:///android_asset/activity.html");
-                toolbar.setTitle("Activity");
-                break;
-            case R.id.nav_star_chart:
-                wb.loadUrl("file:///android_asset/starchart.html");
-                toolbar.setTitle("Star Chart");
-                break;
-            case R.id.nav_student_details:
-                wb.loadUrl("file:///android_asset/student_details.html");
 
-                break;
-            case R.id.nav_assessment:
-                wb.loadUrl("file:///android_asset/assesment.html");
-
-                break;
-            case R.id.nav_report:
-                wb.loadUrl("file:///android_asset/report.html");
-                break;
-        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

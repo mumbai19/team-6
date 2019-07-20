@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Program"
-    tools:showIn="@layout/app_bar_program">
+    tools:context=".Programs"
+    tools:showIn="@layout/app_bar_programs">
 
     <WebView
         android:id="@+id/webview"
