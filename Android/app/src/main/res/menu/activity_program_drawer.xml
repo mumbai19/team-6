@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_attendance"
+            android:icon="@drawable/account_badge"
+            android:title="@string/attendance" />
+        <item
+            android:id="@+id/nav_saving"
+            android:icon="@drawable/ic_attach_money_black_24dp"
+            android:title="@string/saving" />
+        <item
+            android:id="@+id/nav_activity"
+            android:icon="@drawable/ic_library_books_black_24dp"
+            android:title="@string/activity" />
+        <item
+            android:id="@+id/nav_star_chart"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="@string/star_chart" />
+        <item
+            android:id="@+id/nav_student_details"
+            android:icon="@drawable/ic_student_details_24dp"
+            android:title="@string/student_details" />
+        <item
+            android:id="@+id/nav_assessment"
+            android:icon="@drawable/ic_assessment_black_24dp"
+            android:title="@string/assessment" />
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/ic_report_24dp"
+            android:title="@string/report" />
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_log_out_24dp"
+                android:title="@string/menu_logout" />
+            <!--  <item
+                  android:id="@+id/nav_send"
+                  android:icon="@drawable/ic_menu_send"
+                  android:title="@string/menu_send" />-->
+        </menu>
+    </item>
+
+</menu>
