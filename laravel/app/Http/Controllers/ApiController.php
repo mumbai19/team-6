@@ -6,6 +6,7 @@ use App\Http\Resources\General as GeneralResource;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\student;
+use App\students_enrolled_programs;
 use App\student_attendance;
 use App\activity_log;
 use App\programs;
@@ -139,5 +140,23 @@ class ApiController extends Controller
         $dataModel['error'] = false;
 
         return new GeneralResource($dataModel);
+    }
+
+    public function studentsByProgram($program)
+    {
+        $allEnrolled = students_enrolled_programs::where('p_id',$program)->get();
+        
+        $data = collect();
+
+        foreach($allEnrolled as $enrolled){
+            $student_info = student::where('s_id', $enrolled->s_id)->first();
+            $data = collect($data)->merge([$student_info]);
+        }
+
+        $dataModel['data'] = $data;
+        $dataModel['message'] = "API call successful";
+        $dataModel['error'] = false;
+        return new GeneralResource($dataModel);
+
     }
 }
