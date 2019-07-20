@@ -21,5 +21,7 @@
     <string name="assessment">Assessment</string>
     <string name="report">Report</string>
     <string name="student_details">Student Details</string>
+    <string name="title_activity_programs">Programs</string>
+    <string name="menu_share">Share</string>
 </resources>
 

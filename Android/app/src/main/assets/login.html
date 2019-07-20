@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+    function showAndroidToast(toast) {
+        Android.openProfile(toast);
+    }
+
+
+
+    </script>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;
+ 
+}
+
+
+form {border: 3px solid #f1f1f1;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+}
+
+.container {
+  padding: 14px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+<h2 align="center"><i>If you ever wonder how to make a difference...
+    just touch one life</i></h2>
+<form action="">
+
+    <div class="imgcontainer">
+        <img alt="Avatar" class="avatar" src="logo.jpg">
+    </div>
+
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input name="uname" placeholder="Enter Username" required type="text">
+
+        <label for="psw"><b>Password</b></label>
+        <input name="psw" placeholder="Enter Password" required type="password">
+
+        <button onclick="showAndroidToast('Hello Android!')" type="submit">Login</button>
+        <label>
+            <input checked="checked" name="remember" type="checkbox"> Remember me
+        </label>
+    </div>
+
+    <div class="container">
+        <button class="cancelbtn" type="button">Cancel</button>
+    </div>
+</form>
+
+</body>
+</html>
