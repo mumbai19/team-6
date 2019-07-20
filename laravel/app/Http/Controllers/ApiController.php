@@ -99,6 +99,7 @@ class ApiController extends Controller
             $st->s_id = (int)$obj->s_id;
             $st->staff_id = (int)$obj->staff_id;
             $st->p_id = $obj->p_id;
+            $st->criteria_id = $obj->criteria_id;
             $st->save();
         }
 
