@@ -21,3 +21,14 @@ Route::get('/allStudents', 'ApiController@allStudents');
 
 Route::post('/addAttendance', 'ApiController@addAttendance');
 
+Route::post('/addActivity', 'ApiController@addActivity');
+
+Route::get('/getProgram', 'ApiController@getProgram');
+
+Route::post('/addSavings', 'ApiController@addSavings');
+
+Route::post('/addStarChart', 'ApiController@addStarChart');
+
+Route::post('/generateAttendanceReport', 'ApiController@generateAttendanceReport');
+
+
