@@ -21,17 +21,16 @@ Route::get('/', function()
 // {
 // 	return view('login');
 // });
-Route::get('/login', function()
-{
-	return view('tlife.login');
-});
+// Auth::routes();
+Route::get('/login', 'Mcontroller@login');
+Route::get('/check', 'Mcontroller@check');
 
 Route::get('/profile', function()
 {
 	return view('tlife.profile');
 });
 
-
+Route::get('/attendance', 'Mcontroller@attendance');
 
 
 
@@ -109,3 +108,7 @@ Route::get('/documentation', function()
 {
 	return view('documentation');
 });
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');

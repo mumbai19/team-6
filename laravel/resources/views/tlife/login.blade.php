@@ -5,19 +5,19 @@
 
 <h2 align="center" ><i>If you ever wonder how to make a difference...
 just touch one life</i></h2>
-<form action="/action_page.php">
-
+{{-- <form action="/profile" method="post"> --}}
+<form>
   <div class="imgcontainer">
     <img src={{ "assets/img/logo.jpg" }} alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" id="email" name="email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-        
+    <input type="password" placeholder="Enter Password" id="password" name="password" required>
+      
     <a href="{{ url ('/profile') }}" class="btn btn-lg btn-success btn-block">Login</a>
     {{-- <button type="submit">Login</button> --}}
     <label>
@@ -29,6 +29,12 @@ just touch one life</i></h2>
     <button type="button" class="cancelbtn">Cancel</button>
   </div>
 </form>
+
+{{-- <script type="text/javascript">
+    function funct(){
+        Android.openProfile('http://team6.com/profile');
+    }
+</script> --}}
 
 {{-- <div class="container">
         <div class="row">

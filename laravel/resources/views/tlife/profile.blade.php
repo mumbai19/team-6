@@ -17,10 +17,14 @@
   <h2>Basic List Group</h2>
   <ul class="list-group">
   <li class="list-group-item">Beginner<span class="glyphicon glyphicon-ok"> </li>
-    <li class="list-group-item">Foundation<span class="glyphicon glyphicon-ok"> </li>
+  <li class="list-group-item">Foundation</li>
+    <li class="list-group-item">Transit</li>
+	<li class="list-group-item">Discovery</li>
+	<li class="list-group-item">Dream</li>
+    {{-- <li class="list-group-item">Foundation<span class="glyphicon glyphicon-ok"> </li>
     <li class="list-group-item">Transit<span class="glyphicon glyphicon-ok"> </li>
 	<li class="list-group-item">Discovery<span class="glyphicon glyphicon-ok"> </li>
-	<li class="list-group-item">Dream<span class="glyphicon glyphicon-ok"> </li>
+	<li class="list-group-item">Dream<span class="glyphicon glyphicon-ok"> </li> --}}
   </ul>
 </div>
 
