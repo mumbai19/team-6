@@ -1,6 +1,8 @@
 @extends ('layouts.plane')
 @section ('body')
 
+<link rel="stylesheet" href="{{ "assets/stylesheets/login.css" }}" />
+
 <h2 align="center" ><i>If you ever wonder how to make a difference...
 just touch one life</i></h2>
 <form action="/action_page.php">

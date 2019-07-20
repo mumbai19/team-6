@@ -13,10 +13,10 @@
 	<meta content="" name="author"/>
 
 	<link rel="stylesheet" href="{{ mix("assets/stylesheets/styles.css") }}" />
-	<link rel="stylesheet" href="{{ "assets/stylesheets/login.css" }}" />
+	
 </head>
 <body>
 	@yield('body')
-	{{-- <script src="{{ mix("assets/scripts/frontend.js") }}" type="text/javascript"></script> --}}
+	<script src="{{ mix("assets/scripts/frontend.js") }}" type="text/javascript"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 </head>
 <body> --}}
 @extends('layouts.dashboard')
-{{-- @section('page_heading','Dashboard') --}}
+@section('page_heading','Dashboard')
 @section('section')
 
 <div class="container">
