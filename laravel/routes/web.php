@@ -16,6 +16,39 @@ Route::get('/', function()
 	return view('home');
 });
 
+
+// Route::get('/login', function()
+// {
+// 	return view('login');
+// });
+Route::get('/login', function()
+{
+	return view('tlife.login');
+});
+
+Route::get('/profile', function()
+{
+	return view('tlife.profile');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/charts', function()
 {
 	return view('mcharts');
@@ -67,10 +100,10 @@ Route::get('/blank', function()
 	return view('blank');
 });
 
-Route::get('/login', function()
-{
-	return view('login');
-});
+// Route::get('/login', function()
+// {
+// 	return view('login');
+// });
 
 Route::get('/documentation', function()
 {
