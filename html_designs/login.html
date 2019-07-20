@@ -2,6 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;
  
@@ -73,12 +76,12 @@ span.psw {
 </head>
 <body>
 
-<h2 align="center" ><i>If you ever wonder how to make a difference...
-just touch one life</i></h2>
+<h2 align="center" style="font-size:35px"><i>If you ever wonder how to make a difference...</i></h2>
+<h1 align="center" style="font-size:35px;color:#ff9900""><i>just touch one life</i></h2>
 <form action="/action_page.php">
 
   <div class="imgcontainer">
-    <img src="logo.jpg" alt="Avatar" class="avatar">
+    <img src="icon.png" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
@@ -88,14 +91,14 @@ just touch one life</i></h2>
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
         
-    <button type="submit">Login</button>
+    <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-log-in">&nbsp;Login</span></button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
 
   <div class="container">
-    <button type="button" class="cancelbtn">Cancel</button>
+   <span class="psw"><a href="#">Forgot password?</a></span>
   </div>
 </form>
 
