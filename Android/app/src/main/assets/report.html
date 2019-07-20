@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+    </style>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <form action="/action_page.php">
+            <div class="col-md-6">
+                <li class="list-group-item">
+                    <label>Report for:</label><select class="list-group-item" name="reports">
+                    <option value="volvo">StarChart</option>
+                    <option value="saab">Savings</option>
+                    <option value="fiat">Attendance</option>
+                </select></li>
+                <br>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <li class="list-group-item"><label>From:</label>
+                        <input name="From" type="date"></li>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <li class="list-group-item"><label>To:</label>
+                        <input name="To" type="date"></li>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <input class="btn btn-success btn-send" type="submit" value="Detailed">
+                <input class="btn btn-success btn-send" type="submit" value="Summarized">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>

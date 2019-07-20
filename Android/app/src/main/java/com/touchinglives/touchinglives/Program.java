@@ -1,5 +1,7 @@
 package com.touchinglives.touchinglives;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,15 +22,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class Program extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private WebView wb;
+    private Dialog loadingDialog;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
        /* FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +52,21 @@ public class Program extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        loadingDialog = ProgressDialog.show(this, "Please wait", "Loading...");
+
+        wb = findViewById(R.id.webview);
+        wb.getSettings().setJavaScriptEnabled(true);
+        wb.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                loadingDialog.dismiss();
+                super.onPageFinished(view, url);
+            }
+        });
+//file:///android_asset/noInternetConnection/AboutUs.html
+
+        wb.loadUrl("file:///android_asset/course_content.html");
     }
 
     @Override
@@ -52,17 +74,19 @@ public class Program extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (wb.canGoBack()) {
+            wb.goBack();
         } else {
             super.onBackPressed();
         }
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.program, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -84,20 +108,35 @@ public class Program extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-/*
-        if (id == R.id.att) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        switch (id) {
+            case R.id.nav_attendance:
+                wb.loadUrl("file:///android_asset/attendance.html");
+                toolbar.setTitle("Attendance");
+                break;
+            case R.id.nav_saving:
+                wb.loadUrl("file:///android_asset/savings.html");
+                toolbar.setTitle("Saving");
+                break;
+            case R.id.nav_activity:
+                wb.loadUrl("file:///android_asset/activity.html");
+                toolbar.setTitle("Activity");
+                break;
+            case R.id.nav_star_chart:
+                wb.loadUrl("file:///android_asset/starchart.html");
+                toolbar.setTitle("Star Chart");
+                break;
+            case R.id.nav_student_details:
+                wb.loadUrl("file:///android_asset/student_details.html");
 
-        } else if (id == R.id.nav_slideshow) {
+                break;
+            case R.id.nav_assessment:
+                wb.loadUrl("file:///android_asset/assesment.html");
 
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }*/
+                break;
+            case R.id.nav_report:
+                wb.loadUrl("file:///android_asset/report.html");
+                break;
+        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class assessparam extends Model
 {
     protected $table = 'assessparam';
+    public $timestamps = false;
 }

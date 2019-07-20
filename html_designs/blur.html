@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body, html {
@@ -15,7 +18,7 @@ body, html {
 
 .bg-image {
   /* The image used */
-  background-image: url("potrait_photo.jpg");
+  background-image: url("potrait-photo.jpg");
   
   /* Add the blur effect */
   filter: blur(5px);
@@ -46,16 +49,37 @@ body, html {
   padding: 20px;
   text-align: center;
 }
+.login{
+background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+color: white;
+font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
 </style>
 </head>
 <body>
 
-<div class="bg-image"></div>
-
-<div class="bg-text">
-  <h1 style="font-size:40px">If you ever wonder how to make a difference...</h1>
-  <h1 style="font-size:45px;color:#ff9900"><i>just touch one life</h1></i>
+<div class="bg-image">
 </div>
 
+<div class="bg-text">
+  <img src="logo.jpg" height="40%" width="100%"><br><br>
+  <br><br>
+<button type="button" class="btn btn-warning btn-lg btn-block"><h5 style="font-size:30px"><span class="glyphicon glyphicon-log-in"></span>&nbsp; &nbsp; Enter</h5></button>
+  
+</div>
+
+
+
+  
 </body>
 </html>
