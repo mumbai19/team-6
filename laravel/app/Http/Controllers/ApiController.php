@@ -45,7 +45,7 @@ class ApiController extends Controller
        foreach($request->students as $student){
         $st = new student_attendance();
         $st->p_id = $student->p_id;
-        $st->is_present = $request->is_present;
+        $st->is_present = $student->is_present;
         $st->save();
        }
         $dataModel['data'] = [];
