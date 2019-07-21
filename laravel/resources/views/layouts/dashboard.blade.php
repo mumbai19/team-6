@@ -332,7 +332,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li {{ (Request::is('*documentation') ? 'class="active"' : '') }}>
+                         <li {{ (Request::is('*documentation') ? 'class="active"' : '') }}>
                             <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> Documentation</a>
                         </li>
                     </ul>

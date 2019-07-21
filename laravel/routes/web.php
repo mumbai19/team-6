@@ -20,6 +20,38 @@ Route::get('/', function()
 	return view('home');
 });
 
+
+// Route::get('/login', function()
+// {
+// 	return view('login');
+// });
+// Auth::routes();
+Route::get('/login', 'Mcontroller@login');
+Route::get('/check', 'Mcontroller@check');
+
+Route::get('/profile', function()
+{
+	return view('tlife.profile');
+});
+
+Route::get('/attendance', 'Mcontroller@attendance');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/charts', function()
 {
 	return view('mcharts');
@@ -77,10 +109,10 @@ Route::get('/blank', function()
 	return view('blank');
 });
 
-Route::get('/login', function()
-{
-	return view('login');
-});
+// Route::get('/login', function()
+// {
+// 	return view('login');
+// });
 
 Route::get('/documentation', function()
 {
