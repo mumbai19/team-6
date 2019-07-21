@@ -4,7 +4,7 @@
     
 <link rel="stylesheet" href="{{ "assets/stylesheets/attendance.css" }}" />
 
-@foreach ($students as $student)
+@foreach ($students as $stud)
     <ul class="list-group"> 
   <div class="row">
     <div class="col-10"><li style="font-size: 25px; outline: none; border: none;" class="list-group-item">{{$stud->f_name}}." ".{{$stud->f_name}}</li></div>
@@ -17,7 +17,7 @@
 @endforeach
 
 
-{{--  
+{{--      
  <div class="row">
     <div class="col-10"><li style="font-size: 25px; outline: none; border: none;" class="list-group-item itemlist">Vestibulum at eros</li></div>
     <div class="col-2"><label class="switch">
