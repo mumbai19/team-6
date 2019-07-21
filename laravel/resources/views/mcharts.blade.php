@@ -2,6 +2,12 @@
 @section('page_heading','Charts')
 @section('section')
 <div class="col-sm-12">	
+		$chart = Charts::database(User::all(), 'bar', 'highcharts')
+		->elementLabel("Total")
+		->dimensions(1000, 500)
+		->responsive(false)
+		->groupByMonth();
+	
 	<div class="row">
 		<div class="col-sm-6">
 			@section ('cchart1_panel_title','Line Chart')
