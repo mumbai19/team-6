@@ -1,0 +1,49 @@
+<!-- Button trigger modal -->
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2><span class="glyphicon glyphicon-star"></span> Criteria List</h2>
+  <ul class="list-group">
+    <li  class="list-group-item">Name </li> 
+    <li class="list-group-item">Name </li>
+    <li class="list-group-item">Name  </li>
+	<li class="list-group-item">Name </li>
+    <li class="list-group-item">Name  </li>
+  </ul>
+<button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#exampleModal"><h5 style="font-size:25px"><span class="glyphicon glyphicon-plus"></span>&nbsp; &nbsp; Add Judging Criteria</h5>
+</button>
+  </ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><b><h5 style="font-size:25px">Please Enter Paramater</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                    <input id="parameter1" type="text" name="parameter1" class="form-control" placeholder="Please enter parameter 1" required="required" data-error="Lastname is required.">
+                    <div class="help-block with-errors"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
