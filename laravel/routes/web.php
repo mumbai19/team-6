@@ -124,3 +124,8 @@ Route::get('/downloadStudentExcel', function()
 {
 	return Excel::download(new StudentsExport(), 'students.xlsx');
 });
+
+Route::get('/addAttendance', function()
+{
+	return view('addAttendance');
+});
