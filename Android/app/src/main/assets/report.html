@@ -13,9 +13,8 @@
 <body>
 <br>
 <br>
-<br>
-<br>
 <div class="container">
+    <p class="glyphicon glyphicon-stats" style="font-size:45px"> Results</p><br></br>
     <div class="row">
         <form action="/action_page.php">
             <div class="col-md-6">
@@ -26,28 +25,20 @@
                     <option value="fiat">Attendance</option>
                 </select></li>
                 <br>
-            </div>
-            <div class="col-md-6">
                 <div class="form-group">
                     <li class="list-group-item"><label>From:</label>
                         <input name="From" type="date"></li>
                     <div class="help-block with-errors"></div>
                 </div>
-            </div>
-            <div class="col-md-6">
                 <div class="form-group">
                     <li class="list-group-item"><label>To:</label>
                         <input name="To" type="date"></li>
                     <div class="help-block with-errors"></div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <input class="btn btn-success btn-send" type="submit" value="Detailed">
-                <input class="btn btn-success btn-send" type="submit" value="Summarized">
+                <button class="btn btn-warning btn-lg btn-block" type="button"><h5
+                        style="font-size:20px"><span class="glyphicon glyphicon-pencil"></span>&nbsp;
+                    &nbsp; Generate</h5></button>
             </div>
         </form>
     </div>
 </div>
-</div>
-</body>
-</html>

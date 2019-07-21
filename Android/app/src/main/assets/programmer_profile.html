@@ -8,6 +8,7 @@
         rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
   <script>
 function openWin(no) {
   Android.open_program(no);
@@ -15,17 +16,18 @@ function openWin(no) {
 
 
   </script>
+
 </head>
 <body>
 <br></br>
 <div class="container">
-  <p class="glyphicon glyphicon-tasks" style="font-size:45px"> Programs</p><br></br>
-  <ul class="list-group">
-    <li class="list-group-item" onclick="openWin(1)">Beginner</li>
-    <li class="list-group-item" onclick="openWin(2)">Foundation</li>
-    <li class="list-group-item" onclick="openWin(3)">Transit</li>
-    <li class="list-group-item" onclick="openWin(4)">Discovery</li>
-    <li class="list-group-item" onclick="openWin(5)">Dream</li>
+  <br></br>
+  <ul class="list-group" style="font-size: 30px;">
+    <li class="list-group-item" onclick="openWin('Beginner')">Beginner</li>
+    <li class="list-group-item" onclick="openWin('Foundation')">Foundation</li>
+    <li class="list-group-item" onclick="openWin('Transit')">Transit</li>
+    <li class="list-group-item" onclick="openWin('Discovery')">Discovery</li>
+    <li class="list-group-item" onclick="openWin('Dream')">Dream</li>
   </ul>
 </div>
 
