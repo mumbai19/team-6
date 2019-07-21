@@ -53,9 +53,10 @@ class ApiController extends Controller
     public function addActivity(Request $request) {
 
         foreach(json_decode($request->data) as $obj) {
+
             $st = new activity_log();
-            $st->p_id = (int)$obj->p_id;
-            $st->staff_id = (int)$obj->staff_id;
+            $st->p_id = $obj->p_id;
+            $st->staff_id = $obj->staff_id;
             $st->theme = $obj->theme;
             $st->activity_name = $obj->activity_name;
             // $st->date = date("Y/m/d");
@@ -202,19 +203,7 @@ class ApiController extends Controller
 
     public function addStudents(Request $request){
        
-        // return $request;
-        // $request = json_decode($request);
-
-        // return $request;
         foreach(json_decode($request->data) as $obj) {
-
-            // return $obj;
-            // $s_id = $obj->s_id;
-            // $staff_id = $obj->staff_id; 	
-            // $p_id = $obj->p_id;
-            // $is_present = $obj->is_present;
-            // $date = date("Y/m/d");
-        
        
             $st = new student();
             $st->f_name = $obj->f_name;
@@ -225,6 +214,25 @@ class ApiController extends Controller
         }
         $dataModel['data'] = [];
         $dataModel['message'] = "Student Records Added Successfully";
+        $dataModel['error'] = false;
+
+        return new GeneralResource($dataModel);
+    }
+
+    public function generateActivityReport(Request $request){
+       
+        $final_arr = array();
+        $activity_logs = DB::select('select * from activity_log WHERE p_id = :p_id and staff_id = :staff_id', ['p_id' => $request->p_id, 'staff_id' => $request->staff_id]);
+        foreach($activity_logs as $activity) {
+       
+            $theme = $activity->theme;
+            $activity_name = $activity->activity_name;
+            $activity_description = $activity->activity_description;
+
+            array_push($final_arr, [$theme, $activity_name, $activity_description]);
+        }
+        $dataModel['data'] = $final_arr;
+        $dataModel['message'] = "Generated Activity report Successfully";
         $dataModel['error'] = false;
 
         return new GeneralResource($dataModel);
