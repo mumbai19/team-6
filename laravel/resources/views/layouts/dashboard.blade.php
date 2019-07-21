@@ -254,10 +254,10 @@
 
 
                         <li {{ (Request::is('*charts') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('charts') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
+                            <a href="{{ url ('activity') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Activity</a>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li {{ (Request::is('*tables') ? 'class="active"' : '') }}>
+                        <!-- <li {{ (Request::is('*tables') ? 'class="active"' : '') }}>
                             <a href="{{ url ('tables') }}"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li {{ (Request::is('*forms') ? 'class="active"' : '') }}>
@@ -285,8 +285,8 @@
                                     <a href="{{ url ('grid') }}">Grid</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                         /.nav-second-level
+                        </li> -->
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

@@ -11,6 +11,7 @@
 |
 */
 use App\Data;
+use App\activity_log;
 use App\Exports\StudentsExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -29,6 +30,21 @@ Route::get('/childrenDatabase', function()
 {	$data = Data::all();
 	return view('childrenDatabase')->withData($data);
 });
+
+// activity
+Route::get('/activity', function()
+{
+	$data = activity_log::all();
+	return view('activity')->withData($data);
+});
+
+Route::get('/activity_add', function()
+{
+	// $data = activity_log::all();
+	return view('activity_add');
+});
+Route::post('/addActivity', 'ApiController@addActivity');
+
 
 
 Route::get('/tables', function()
