@@ -2,6 +2,8 @@ package com.touchinglives.touchinglives;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -50,6 +53,8 @@ public class Programs extends AppCompatActivity
 
         wb = findViewById(R.id.webview);
         wb.getSettings().setJavaScriptEnabled(true);
+        wb.addJavascriptInterface(new WebAppInterface(this), "Android");
+
         wb.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
@@ -63,6 +68,14 @@ public class Programs extends AppCompatActivity
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.programs, menu);
+        return true;
+    }
+
+
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -74,11 +87,23 @@ public class Programs extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.programs, menu);
-        return true;
+    public class WebAppInterface {
+        Context mContext;
+
+        /**
+         * Instantiate the interface and set the context
+         */
+        WebAppInterface(Context c) {
+            mContext = c;
+        }
+
+        @JavascriptInterface
+        public void open_program(String no) {
+            //Toast.makeText(getApplicationContext(), profileUrl, Toast.LENGTH_LONG);
+            Intent intent = new Intent(getApplicationContext(), Program.class);
+            intent.putExtra("no", Integer.parseInt(no));
+            startActivity(intent);
+        }
     }
 
     @Override
