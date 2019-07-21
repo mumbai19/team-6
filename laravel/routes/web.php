@@ -11,6 +11,7 @@
 |
 */
 use App\Data;
+use App\activity_log;
 use App\Exports\StudentsExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -61,6 +62,21 @@ Route::get('/childrenDatabase', function()
 {	$data = Data::all();
 	return view('childrenDatabase')->withData($data);
 });
+
+// activity
+Route::get('/activity', function()
+{
+	$data = activity_log::all();
+	return view('activity')->withData($data);
+});
+
+Route::get('/activity_add', function()
+{
+	// $data = activity_log::all();
+	return view('activity_add');
+});
+Route::post('/addActivity', 'ApiController@addActivity');
+
 
 
 Route::get('/tables', function()
@@ -129,3 +145,17 @@ Route::get('/addAttendance', function()
 {
 	return view('addAttendance');
 });
+
+Route::get('/roles', function()
+{
+	return view('roles');
+});
+
+
+Route::post('/addAttendanceOnDate','StudentController@addAttendanceOnDate');
+Route::post('/addnewRecord','StudentController@addnewRecord');
+
+Route::get('/admin', 'AdminController@assign');
+Route::post('/admin/faculty', 'AdminController@displayFaculty');
+Route::post('/admin/insert', 'AdminController@insertRole');
+Route::get('/admin/remove', 'AdminController@removeRole');

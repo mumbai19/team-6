@@ -52,23 +52,26 @@ class ApiController extends Controller
 
     public function addActivity(Request $request) {
 
-        foreach(json_decode($request->data) as $obj) {
+        // foreach(json_decode($request->data) as $obj) {
 
             $st = new activity_log();
-            $st->p_id = $obj->p_id;
-            $st->staff_id = $obj->staff_id;
-            $st->theme = $obj->theme;
-            $st->activity_name = $obj->activity_name;
+            $st->p_id = 1;
+            $st->staff_id = 1;
+            $st->theme = $request->input('theme');
+            $st->activity_name = $request->input('name');
             // $st->date = date("Y/m/d");
-            $st->activity_description = $obj->activity_description;
+            $st->activity_description = $request->input('description');
+            // return $request->input('description');
+         
             $st->save();
-        }
+        // }
 
-        $dataModel['data'] = [];
-        $dataModel['message'] = "Activity Record Added Successfully";
-        $dataModel['error'] = false;
+        // $dataModel['data'] = [];
+        // $dataModel['message'] = "Activity Record Added Successfully";
+        // $dataModel['error'] = false;
 
-        return new GeneralResource($dataModel);
+        // return new GeneralResource($dataModel);
+        return redirect('/');
     }
 
     public function getProgram() {
