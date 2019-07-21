@@ -2,6 +2,8 @@
 @section('page_heading','Charts')
 @section('section')
 <div class="col-sm-12">	
+		
+	
 	<div class="row">
 		<div class="col-sm-6">
 			@section ('cchart1_panel_title','Line Chart')

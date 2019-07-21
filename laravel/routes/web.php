@@ -21,6 +21,38 @@ Route::get('/', function()
 	return view('home');
 });
 
+
+// Route::get('/login', function()
+// {
+// 	return view('login');
+// });
+// Auth::routes();
+Route::get('/login', 'Mcontroller@login');
+Route::get('/check', 'Mcontroller@check');
+
+Route::get('/profile', function()
+{
+	return view('tlife.profile');
+});
+
+Route::get('/attendance', 'Mcontroller@attendance');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/charts', function()
 {
 	return view('mcharts');
@@ -93,10 +125,10 @@ Route::get('/blank', function()
 	return view('blank');
 });
 
-Route::get('/login', function()
-{
-	return view('login');
-});
+// Route::get('/login', function()
+// {
+// 	return view('login');
+// });
 
 Route::get('/documentation', function()
 {
@@ -108,3 +140,22 @@ Route::get('/downloadStudentExcel', function()
 {
 	return Excel::download(new StudentsExport(), 'students.xlsx');
 });
+
+Route::get('/addAttendance', function()
+{
+	return view('addAttendance');
+});
+
+Route::get('/roles', function()
+{
+	return view('roles');
+});
+
+
+Route::post('/addAttendanceOnDate','StudentController@addAttendanceOnDate');
+Route::post('/addnewRecord','StudentController@addnewRecord');
+
+Route::get('/admin', 'AdminController@assign');
+Route::post('/admin/faculty', 'AdminController@displayFaculty');
+Route::post('/admin/insert', 'AdminController@insertRole');
+Route::get('/admin/remove', 'AdminController@removeRole');
