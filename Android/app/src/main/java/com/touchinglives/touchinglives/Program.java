@@ -233,13 +233,18 @@ public class Program extends AppCompatActivity
                         .putExtra(ContactsContract.Intents.Insert.PHONE, "5555555555");
 
                 startActivityForResult(contactIntent, 1);*/
+                toolbar.setTitle("Student Details");
+
                 break;
             case R.id.nav_assessment:
                 wb.loadUrl("file:///android_asset/assesment.html");
+                toolbar.setTitle("Assessment");
 
                 break;
             case R.id.nav_report:
                 wb.loadUrl("file:///android_asset/report.html");
+                toolbar.setTitle("Report");
+
                 break;
         }
 
