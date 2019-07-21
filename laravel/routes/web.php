@@ -97,3 +97,17 @@ Route::get('/addAttendance', function()
 {
 	return view('addAttendance');
 });
+
+Route::get('/roles', function()
+{
+	return view('roles');
+});
+
+
+Route::post('/addAttendanceOnDate','StudentController@addAttendanceOnDate');
+Route::post('/addnewRecord','StudentController@addnewRecord');
+
+Route::get('/admin', 'AdminController@assign');
+Route::post('/admin/faculty', 'AdminController@displayFaculty');
+Route::post('/admin/insert', 'AdminController@insertRole');
+Route::get('/admin/remove', 'AdminController@removeRole');
