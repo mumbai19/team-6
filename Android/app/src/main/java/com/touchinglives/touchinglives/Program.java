@@ -24,6 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class Program extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,12 +32,30 @@ public class Program extends AppCompatActivity
     private WebView wb;
     private Dialog loadingDialog;
     private Toolbar toolbar;
+    private int programId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        programId = getIntent().getIntExtra("no", 1);
+        switch (programId) {
+            case 1:
+                toolbar.setTitle("Beginner");
+                break;
+            case 2:
+                toolbar.setTitle("Foundation");
+                break;
+            case 3:
+                toolbar.setTitle("Transit");
+                break;
+            case 4:
+                toolbar.setTitle("Discovery");
+                break;
+            case 5:
+                toolbar.setTitle("Dream");
+        }
        /* FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,12 +80,14 @@ public class Program extends AppCompatActivity
             @Override
             public void onPageFinished(WebView view, String url) {
                 loadingDialog.dismiss();
+
                 super.onPageFinished(view, url);
             }
         });
 //file:///android_asset/noInternetConnection/AboutUs.html
 
         wb.loadUrl("file:///android_asset/course_content.html");
+        Toast.makeText(getApplicationContext(), programId + "", Toast.LENGTH_LONG);
     }
 
     @Override
@@ -74,8 +95,6 @@ public class Program extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if (wb.canGoBack()) {
-            wb.goBack();
         } else {
             super.onBackPressed();
         }
@@ -126,8 +145,8 @@ public class Program extends AppCompatActivity
                 toolbar.setTitle("Star Chart");
                 break;
             case R.id.nav_student_details:
-                wb.loadUrl("file:///android_asset/student_details.html");
-
+                //wb.loadUrl("file:///android_asset/student_details.html");
+                wb.loadUrl("http://52.221.248.168/childrenDatabase");
                 break;
             case R.id.nav_assessment:
                 wb.loadUrl("file:///android_asset/assesment.html");

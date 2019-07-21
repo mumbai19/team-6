@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.JavascriptInterface;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         wb = findViewById(R.id.webview);
         wb.getSettings().setJavaScriptEnabled(true);
+        wb.addJavascriptInterface(new WebAppInterface(this), "Android");
+
         wb.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
@@ -37,13 +40,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @JavascriptInterface
-    public void openProfile(String profileUrl) {
-        Toast.makeText(getApplicationContext(), profileUrl, Toast.LENGTH_LONG);
-        Intent intent = new Intent(getApplicationContext(), Programs.class);
-        intent.putExtra("url", "file:///android_asset/programmer.html");
-        startActivity(intent);
+    public class WebAppInterface {
+        Context mContext;
+
+        /**
+         * Instantiate the interface and set the context
+         */
+        WebAppInterface(Context c) {
+            mContext = c;
+        }
+
+        @JavascriptInterface
+        public void openProfile() {
+            //Toast.makeText(getApplicationContext(), profileUrl, Toast.LENGTH_LONG);
+            Intent intent = new Intent(getApplicationContext(), Programs.class);
+            intent.putExtra("url", "file:///android_asset/programmer_profile.html");
+            startActivity(intent);
+        }
     }
+
+
 
     @Override
     public void onBackPressed() {

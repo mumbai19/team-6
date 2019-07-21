@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript">
-    function showAndroidToast(toast) {
-        Android.openProfile(toast);
-    }
-
-
-
-    </script>
     <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
 body {font-family: Arial, Helvetica, sans-serif;
  
@@ -78,18 +74,23 @@ span.psw {
 }
 
 
-
-
     </style>
+    <script>
+function openWin() {
+  Android.openProfile("file:///android_asset/programmer_profile.html");
+}
+
+
+    </script>
 </head>
 <body>
 
-<h2 align="center"><i>If you ever wonder how to make a difference...
-    just touch one life</i></h2>
+<h2 align="center" style="font-size:35px"><i>If you ever wonder how to make a difference...</i></h2>
+<h1 align="center" style="font-size:35px;color:#ff9900""><i>just touch one life</i></h2>
 <form action="">
 
     <div class="imgcontainer">
-        <img alt="Avatar" class="avatar" src="logo.jpg">
+        <img alt="Avatar" class="avatar" src="icon.png">
     </div>
 
     <div class="container">
@@ -99,14 +100,15 @@ span.psw {
         <label for="psw"><b>Password</b></label>
         <input name="psw" placeholder="Enter Password" required type="password">
 
-        <button onclick="showAndroidToast('Hello Android!')" type="submit">Login</button>
+        <button class="btn btn-warning" onclick="openWin()" type="button"><span
+                class="glyphicon glyphicon-log-in">&nbsp;Login</span></button>
         <label>
             <input checked="checked" name="remember" type="checkbox"> Remember me
         </label>
     </div>
 
     <div class="container">
-        <button class="cancelbtn" type="button">Cancel</button>
+        <span class="psw"><a href="#">Forgot password?</a></span>
     </div>
 </form>
 

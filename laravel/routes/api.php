@@ -26,7 +26,7 @@ Route::post('/addActivity', 'ApiController@addActivity');
 Route::get('/getProgram', 'ApiController@getProgram');
 
 Route::post('/addSavings', 'ApiController@addSavings');
-    
+
 Route::post('/addStarChart', 'ApiController@addStarChart');
 
 Route::post('/generateAttendanceReport', 'ApiController@generateAttendanceReport');
@@ -36,3 +36,5 @@ Route::get('/studentsByProgram/{program}', 'ApiController@studentsByProgram');
 Route::post('/generateAttendanceReportDetailed', 'ApiController@generateAttendanceReportDetailed');
 
 Route::post('/addStudents', 'ApiController@addStudents');
+
+Route::post('/generateActivityReport', 'ApiController@generateActivityReport');
