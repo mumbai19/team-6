@@ -252,6 +252,9 @@
                             <a href="{{ url ('childrenDatabase') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Children Database</a>
                         </li>
 
+                        <li {{ (Request::is('*forms') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('addAttendance') }}"><i class="fa fa-edit fa-fw"></i> Add Attendance</a>
+                        </li>
 
                         <li {{ (Request::is('*charts') ? 'class="active"' : '') }}>
                             <a href="{{ url ('charts') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
